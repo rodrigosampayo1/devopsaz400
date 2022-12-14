@@ -1,3 +1,5 @@
 az login --tenant xxxxxxxx
 
 az account set --subscription xxxxx
+
+#testing cicd
