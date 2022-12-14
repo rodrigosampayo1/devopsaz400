@@ -7,7 +7,9 @@ Azure Az-400:
 Acloudguru
 
 Terraform Associate:
+
 https://developer.hashicorp.com/terraform/tutorials/certification/associate-study
+
 https://learn.acloud.guru/course/hashicorp-certified-terraform-associate-1/overview
 
 https://www.terraform-best-practices.com/
