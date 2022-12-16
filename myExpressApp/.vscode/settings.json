@@ -1,3 +1,5 @@
 {
-    "WhiteSource Advise.Diff.BaseBranch": "main"
+    "WhiteSource Advise.Diff.BaseBranch": "main",
+    "appService.defaultWebAppToDeploy": "/subscriptions/514cd396-f281-41a1-b376-6d348b606151/AppServices/subscriptions/514cd396-f281-41a1-b376-6d348b606151/resourceGroups/RG-Rodrigo-Sampayo-Test2/providers/Microsoft.Web/sites/testing2rodrigoaz400",
+    "appService.deploySubpath": "."
 }
