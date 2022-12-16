@@ -1,0 +1,4 @@
+C1 - Intro -> Done
+C2 - Dev an actionable alerting strategy -> Done
+C3 - Designing a failure prediction strategy -> Done
+C4 - Designing and imlementing a health check ->
