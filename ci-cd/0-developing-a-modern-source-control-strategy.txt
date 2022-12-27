@@ -1,0 +1,15 @@
+# Source control
+
+- Visual studio
+- Git as a repo
+
+Both are local
+
+## What is Source control? source repositoriores or version control or VSC
+Its a cenrtal soruce of truth fro group code base
+Allows multi devs to collaborate on code and track changes
+examples: azures repos, github, bitbucket, gitlab
+
+types: git (distributed or decentralized) or TFVC (centralized/client-server)
+
+

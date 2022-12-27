@@ -1,0 +1,10 @@
+git log #shows you
+git log --oneline
+git log --prety="- %s"
+
+#basics
+git push origin main
+git pull
+git add .
+git commit -m "mensaje"
+

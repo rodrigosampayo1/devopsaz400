@@ -1,0 +1,11 @@
+- last updates, ci and cd
+- testing cicd dev
+- testing cicd
+- Create blank.yml
+- Update README.md
+- Update README.md
+- Update README.md
+- Update README.md
+- Update README.md
+- Create azurecli.txt
+- Initial commit
