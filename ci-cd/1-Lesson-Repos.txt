@@ -1,0 +1,11 @@
+# Azure repos
+
+Azure pipelines can use Azure repos or another
+
+No importa donde este el repo, puede ser local, o en github u otro lado, cuando se pasa a azure repos, esta ultima va a ser la fuente, el origen
+
+Pasos o flow:
+1. Clonar or ADD a Azure Repos
+2. De azure repo, clonar a nuestro ambiente local, a VS
+3. Actualizar, push/pull nuevos cambios a/desde azure repos
+
