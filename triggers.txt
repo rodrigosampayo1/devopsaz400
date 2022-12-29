@@ -1,0 +1,8 @@
+# Triggers
+
+## Types:
+- CI trigger
+- Scheduled Trigger
+- Pipeline Trigger
+- PR Trigger
+
