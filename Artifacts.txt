@@ -1,0 +1,68 @@
+Designing a package management strategy:
+
+Software package = archive file containing program and deployment metadata, to put install that application,
+ejemplos: APK, DMG, RPM, DEB
+
+Development-Related Package managers: NPM, Maven, Nuget, Python
+Ejemplo, NPM for nodejs, Maven for Java, Nuget for .net, Python packages
+
+No son para instalar al usuario final, sino que simplica el proceso de trabajar con diferentes deploys de lenguajes de programacion in un flujo de trabajo de desarrollo.
+
+Package management? son diferentes tipos de herramientas que simplifican el proceso de instalacion, uso, actualizacion y eliminacion de las aplicaciones
+Para el area DEVOPS, un packages es un artifact, para casi todos los casos se pueden usar las mismas palabras, pero hay pequenias diferencias.
+
+Googleando, artifact es el resultado de la fase de Build (CI), y package no se
+
+
+Package management = Nuget, Maven, NPM, Python,,,estos paquetes van juntos a dependencias dentro del codigo..
+Por ejemplo podes tener un paquete de Maven en una aplicacion
+
+-- Package Hosting Service, donde corren estos package, contiene las difrentes versiones del paquete, y se integra a los build pipeline using FEEDS.
+Por lo tanto un PHS, package hosting service, es como un reposito donde viven nuestro package en nuestra organizacion, tambien llamados Pipeline Artifact.
+Por eso package = artifact.
+
+-- Azure artifacts, es nativo de azure devops, pero existen otros Package hosting Service como por ejemplo Github Packages, Jfrog Artifactory.
+
+Summary:
+
+software packages = application deployment tools
+devops perspective = upstream dependency/deployment OR software packages that acts as dependencies to our broader application
+package hosting service = package/artifact source of truth, ejemplo Azure artifact
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Azure artifacts:
+
+Its a package built in Azure. Control artifact management/access using FEEDS, support private and public registries, supports (Maven, NPM, NuGet, Python)
+
+Feeds:
+Cuando creas un artifact despues de correr un pipeline, estos artifacts son PUBLICADOS a un FEED, y esto se puede compartir internament o publicamente, 
+adentro de un solo projecto de Azure devops o dentro de toda la organizacion.
+Darle diferentes scope.
+Desarrolladores o Devs, pueden conectarse al feed y subir sus paquetes, usando VisualStudio.
+
+Workflow seria asi:
+Build pipeline -> (publish package) -> Azure Artifacts Feed <-> (Authenticate and connect to feed) <-> Developers with upstream packages
+
+Devs no need api keys or tokens using Visual Studio and NuGet packages -> Use OAuth authentication, add package URL to NuGet package Manager in VS.
+Another languages may use PAT, personal Access Tokens.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Version Strategy for Artifacts feed
+
+Para grandes aplicaciones es bueno tener para tener un mejor control y managament.
+Package are IMMUTABLE, no pueden ser editados ni cambiados, la version tampoco puede ser cambiado ni reusado.
+
+Como hacer el versionado? Semantic versioning y quality change, ejemplo 2.1.3-prerelease
+major.minor.patch-tag En este caso prerelease es el tag, 
+Lo demas es, 2 es la version major, la mas grande. Despeus sigue 1, que es la version menor de 2. Y despues continua el patch de 2.1
+La parte final solo es para describir, en este caso es una pre release
+
+
+Feed-> Views (esto esta dentro de Settings)
+Te deja ver diferentes las vistas, compartir paqetes y mantener otrs privados.
+Siempre que se crea un feed, se crean 3 views, la @local es la default, donde van los package por defecto,
+Despues podes moverla a las otras vistas o views
+
+Promote, te permite cambiar de View, por defaulta esta en @local.
+

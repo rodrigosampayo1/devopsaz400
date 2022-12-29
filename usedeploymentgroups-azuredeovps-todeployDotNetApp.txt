@@ -1,0 +1,7 @@
+server name: db1-serverrsxyz123
+
+-adminUsername "cloud_user"
+-adminPassword "ACG_Azure_Lab123!!"
+
+-databaseUsername "dbadmin"
+-databasePassword "ACG_Azure_Lab123!!"
