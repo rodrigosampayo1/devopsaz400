@@ -1,0 +1,44 @@
+# Containerized agents
+
+Why run a pipeline job in a container?
+Isolation from host
+
+3 containerized scenarios 
+	1. MS agent
+	2. SH without orchestariton using docker
+	3. SH with orchestattion, like Kubernetes
+
+1. MS agent
+
+docker hub or azure docker container (private)
+
+ejemplo:
+pool:
+	vmImage: 'ubuntu-18.04' (este es el host imagen, del agente)
+container: ubuntu:16.04 (este es la imagen del contenedor publico, aka docker hub)
+(funciona asi, el host vmImage c/ubuntu18 tiene un contenedor adentro que corre ubuntu16.04, y dentro del docker corre el script)
+
+steps:
+- script: echo "hello world"
+
+
+2 and 3. Self hosted:
+*set of variables en azure devops
+*los docker se registran como los Selh hosted vm.
+
+Environment variables: 
+	azp_url
+	azp_token
+	azp_agent_name
+	azp_pool
+	azp_work
+
+The process with non orquestation, like Docker:
+create a dockerfile and script
+build and start container image
+
+The process with orquestation with Kubernetes:
+1.configure secrets on aks cluster, using AZP_URL, AZP_TOKEN and AZP_POOL, sets environment variables on cluster -> kubectl create secret generic azdevops --from-literal....
+2. Push container image to ACR, and configure ACR integration with AKS cluster -> docker push <acr-server>/dockeragent:latest
+3. Create deployment YAML, provieded by microsoft -> az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-name>
+4. Deploy image to AKS cluster -> kubectl apply -f replicationcontroller.yaml

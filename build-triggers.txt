@@ -1,0 +1,50 @@
+# Triggers
+
+## Types:
+- CI trigger, for updateds
+- Scheduled Trigger
+- Pipeline Trigger
+- PR Trigger
+
+
+- CI trigger
+trigger:
+	branches:
+	 	include:
+		- master
+		- releases/*
+		exclude:
+		- release/old*&
+
+- Scheduled trigger
+
+schedules:
+ - cron: 1 1 1 1 2
+   displayname: my-agenda-nueva-2022
+   branches: 
+	include: new-feature
+   always:true
+
+Pueden ir juntos o separados de CI trigger
+always true, es para actualizar cuando fue actualizado. Si lo pones en false, y es actualizado, no se ejecuta siempre
+
+- Pipeline trigger, es cuando un pipeline ejecuta otro pipeline
+
+resources:
+  pipelines:
+  - pipeline: upstream-lib
+   source: upstream-lib-ci
+   project: ctrl-alt-sweets
+   trigger: true
+
+
+- PR trigger
+En azure se configra en Branches policies
+En otro repo que no sea azure, se pone en el Yaml asi:
+
+pr:
+- master
+- releases/*  
+
+
+

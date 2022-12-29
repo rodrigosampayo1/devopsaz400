@@ -1,0 +1,16 @@
+I would suggest you start making demo systems.
+
+Put yourself into a situation where you setup a repo, add a pipeline, build some infra using Terraform and then automate it. 
+Get it working locally, then start making your cloud env, then last step is to build pipelines.
+
+I don't have suggestions for sites, as I don't keep up. Docker tutorials, terraform tutorials, and Gitlab tutorials.. start cherry picking.. 
+it will be determined by how you best learn. I'll help if you are stuck, or want some projects to do/ideas for projects.
+
+For docker, build an nginx dokerfile that displays a hello world. 
+Learn how to build, how to configure, starting the container, checking the process, accessing the website in it, removing the container, 
+updating the container with a new image. Managing images, i.e. pulling and pushing the dockerfile and examples to gitlab container registry. 
+Learn about what tags are and how they are used.
+
+
+You can do a lot with a little.. then there are a bunch or scenarios to begin learning about.. what it can do.
+ Later once you have docker down, I will help you learn Kubernetes.. which is docker with advanced configurations.

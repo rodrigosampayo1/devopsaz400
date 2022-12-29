@@ -16,4 +16,30 @@ Sell hosted:
 PAT:
 petsif2nvkm3m3zoalxhlkra6wa4ejqpcer2bubwi4nk32m5h4pa
 
+*******##########################################################3**********************
 
+# Multiple builds or job in Pipeline
+
+in the same pipeline, have differetens jobs
+
+**usando MATRIX, son copias del mismo job pero con un input differente, es decir se duplican los JOBS, en un SOLO STEP
+
+strategy:
+ matrix:
+  python27:
+	python.version: '2.7'
+  python35:
+	python.version: '3.5'
+  python36:
+	python.version: '3.6'
+
+
+Despues, usas python.version asi:
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(python.version)'
+   displayName: 'Use Python $(python.verison)'
+
+**
