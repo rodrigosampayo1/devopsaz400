@@ -1,0 +1,19 @@
+# MS hosted vs Self hosted : agents pool
+
+## MS hosted
+	pool:
+	  vmImage: ubuntu-20.04
+
+## Self hosted
+	pool:
+	  name: 'myPool'
+
+Sell hosted:
+	1. create a PAT
+	2. Instal and config self-hosted on a VM
+	3. Post install, view agents in agent pool
+
+PAT:
+petsif2nvkm3m3zoalxhlkra6wa4ejqpcer2bubwi4nk32m5h4pa
+
+
