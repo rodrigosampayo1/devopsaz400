@@ -1,0 +1,14 @@
+https://www.azuredevopslabs.com/labs/vstsextend/docker/
+
+Server name: docker001sqlserver.database.windows.net
+
+Docker registry:
+ Login server: dockeracr001.azurecr.io
+
+Se crearon un docker registry, una DB sql, y una app
+
+##########
+
+Exercise 1: Configure Continuous Integration (CI) and Continuous Delivery (CD)
+
+
