@@ -8,3 +8,10 @@ git pull
 git add .
 git commit -m "mensaje"
 
+##
+git remote -v #Para ver si es un azure repo
+
+git remote remove origin (eliminamos el puntero al repo que no es azure)
+#si hacemos git remote -v, no vamos a ver nada
+#Desde azure devops, la 2da opcion, "push an existing rep from commnad line", esto hace
+git remote add origin https......
