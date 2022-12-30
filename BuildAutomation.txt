@@ -1,0 +1,60 @@
+Designing build automation
+
+--Integreate external services with Azure Pipelines
+
+1. scan code for vulnerabilites-> black duck, whiteSourceBolt, Snyk
+whitesourcebolt, find and fix opne-source vulns.
+Snyk, find and fix open-source vulns.
+Octupus Deploy, devos automation and dependencies scanning
+
+2. test code coverage (para ver si se utiliza todo el codigo)->
+
+3. Monitor code dependencies->
+
+4. Integrate with other Ci/CD products, como Jenkins and CircleCI->
+
+5. Visual Studio marketplace, ejemplo Black Duck detect, identify security vulns during Building.
+
+6. Service Hook vs Service Connector:
+a. Service Hook, with Chatops. SH are trigger from Azure devops, example notify Jenkins of a new Git Repo Commit
+b. Service Connector, take external service, Jenkins, executres task in a pipeline job; Integrate external services more deeply into Azure Pipelines.
+
+
+Authentication:
+a. PAT, personal access token, del lado de Azure.
+b. API Token,o  authorization Token, ejemplo Jenkins; generalmente para eservicios externos 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Code testing -> find bugs, fix errores, improve quality
+
+Manual or Automated Process on Test code. Automatic test built into PIPELINE. 
+Multiple Testing methods, at a GRANULAR or WIDE scope, EJEMPLOS:
+
+1. Unit Test, scope: indiivual component (function, method, etc)
+2. Integration, scope: integration of componentes working together
+3. Functional/Systems, scope: Entire feature/application
+4. UI, scope: User interface elements, example SELENIUM, a popular UI testing tool
+
+--Azure Test Plans:
+Its a planning board or a tracking board.
+Exploratory, manual, user acceptance testing.
+Plan and track testing results
+Not automated, use pipeline instead.
+
+For examploe, for unit test, use Pipeline
+
+--Code Coverge, es un tipo de code testing
+its a test that messeure how much of your code with your code base is ACTUALLY used and live
+More in-use code = less bugs and easier to maint
+
+In visual studio, has a built in
+Azure Pipeline can be incorporated inside the script, such as:
+- script: dotnet test test-project-name --loger trx --collect "Code coverage"
+
+--Frameworks de diferentes lenguajes:
+Language ~ Code coverage framework
+Java	-> JaCoCo, Cobertura, Clover
+C++	-> Bullseye
+Python	-> Coverage.py
+.Net/C#	-> Ncover, dotCover

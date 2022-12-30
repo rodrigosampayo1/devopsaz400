@@ -1,0 +1,45 @@
+-- Deployment groups: Its a logical set of deployment target machines that have agents.
+These represent the physical environments, for example Dev, Prod and Test environment. 
+So, a deployment group is just another grouping of AGENTS, much like an agent ppol.
+Deployment groups are ONLY available with CLASSIC RELEASE PIPELINES (diferente a YAML Pipeline)
+
+-- Variables: to define  a value that you can then use in your pipeline; these are stored as strings and mutable
+These can change from run to run OR job to job of your pipeline.
+Trabajan con scope y si esta definida en Stage, pisa las de jobs. Es decir,
+->When you define the same variable in multiple places with same name, the most locally scoped variable wins.
+You can add variables to variables groups.
+
+-- Variables groups: Store values and secrets that you might want to be passed into a YAML pipeline,
+or make available across multiple pipelines.
+You can share and use variable groups in multiple pipelines in the same project.
+Also, secret variables in "variables groups" are PROTECTED RESOURCES, and can add combinations of aprrovals,
+checks, and pipeline permissions to limit access to 'secret variables' in a 'variable group'.
+
+-- Protected resources: agents pools, secret variables in variable groups, secure files, service connections,
+environments, repositories.
+Protected is because is for specific users and project; and you can ADD approvals and checks.
+
+-- Secure File: (On pipelines-Library)
+This give you a way to store files that you can share ACROSS pipelines, this files are used to store:
+'signing certificates','apple provisioning profiles', 'android keystore files', 'ssh keys'.
+The files can be stored on the server without having to COMMIT them to your repository.
+The size limit for each secure file is 10MB.
+
+
+--Targets on CI:
+--Targets on CD:
+
+
+
+--A trigger tells a Pipeline to run.
+--A pipeline is made up of one or more stages. A pipeline can deploy to one or more environments.
+--A stage is a way of organizing jobs in a pipeline and each stage can have one or more jobs.
+--Each job runs on one agent. A job can also be agentless.
+--Each agent runs a job that contains one or more steps.
+--A step can be a task or script and is the smallest building block of a pipeline.
+--A task is a pre-packaged script that performs an action, such as invoking a REST API or publishing a build artifact.
+--An artifact is a collection of files or packages published by a run.
+
+--More info about pipelines:
+https://learn.microsoft.com/en-us/azure/devops/pipelines/process/environments?view=azure-devops
+
