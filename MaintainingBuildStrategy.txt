@@ -1,0 +1,52 @@
+Unit 12
+
+-- Discovering Pipeline health monitoring:
+
+failing builds
+failing tests
+long build times
+
+--Pipeline Reports,
+Tiene tres partes: pipeline pass rate, test pass report, pipeline duration
+
+1.pipeline pass rate, nos dice los resultados exitos, o fallidos, con un grafico con el historial.
+2.test pass rate, passed or failed test, nos da detalles de failed test y success, y los mas fallidos o exitoos
+3.pipeline duration, detalles del tiempo de cada paso, de que tarea, el tiempo, dias, etc
+
+Estos se pueden ver dentro de cada pipeline en la tab Analytics
+
+--- Improving build performance and Cost Efficiency
+Performance vs Costs
+1 Parallel Agent pool increase-> unlimited build time for flat a monthly fee, si usas poco o mucho, pagas lo mismo
+				slower builds + heavy usage = more agents required, more cost
+2 Longer queue time for same agents:
+			slower builds-more time waiting for available agents
+			time = money
+3 Faster builds = lower costs
+
+
+
+--Pipeline caching, es para re-use outputs between jobs
+Basicamente lo que hace es que pasa la salida de un job a otro job, del mismo agente.
+Por default, MS hosted agent usan "clean slate", quiere decir que no tiene un output previo de otro agente.
+Pero usas esto, lleva tiempo, y se puede reemplazar usando el mismo agente:
+Agent, hace job1, sale un output, el agent nuevo con job2, lo recibe
+---> Pero con Caching, se re usa la salida o dependencias entre JOBS. Para esto el pipeline tiene que ser declarado como PIPELINE TASK
+Ejemplo: re-use NPM build between jobs.
+
+---Caching vs Artifacts:
+los dos construyen algo
+Caching: hace enfasis en la performance y no son dependencias requeridas, esto quiere decir que si los outputs no son cacheados no afectara a la performance
+Artifacts: no son orientados a la performance, pero si comparten recursos dependientes o requeridos entre JOBS.
+Es decir un Job produce un artifact que es requerido por otro job o AGENT para usar para construir exitosamente. Si no pasa, falla el build.
+
+---SH agents
+Para reducir los costos
+Lo podes customizar como quieras, more cpu, RAM, GPU
+Menor costo mensuale para trabajos paralolos. Un sSH cuesta 15/mont, y uno MS cuesta $40
+Re usar assets entre builds = menor tiempo de build, por ende menor gasto
+
+---Agent pool consumption reports
+Esta en Analytics
+Te dice cuantos agentes en paralelo realmente necesitas
+Elimina adivinar si hay agentes libres
