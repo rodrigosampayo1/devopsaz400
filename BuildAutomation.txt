@@ -58,3 +58,22 @@ Java	-> JaCoCo, Cobertura, Clover
 C++	-> Bullseye
 Python	-> Coverage.py
 .Net/C#	-> Ncover, dotCover
+
+##################################################################################################
+
+Troubleshoot Piperline failures:
+0. Pipeline issue: failed builds, failed test or long build times
+
+1. Jobs failing due to errores
+WHY? maybe our codebase doesn't support test , or necessary files not found
+
+2. Pipeline logs provide greater visibility to build process
+
+View LOGS from Job Summary
+
+Another option, is to create a more DETAILED LOGS:
+	configure before new pipeline run
+	enable system diagnostics
+	
+
+
